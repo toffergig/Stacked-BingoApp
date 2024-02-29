@@ -11,6 +11,7 @@ import 'package:bingo_app/ui/views/onboarding/onboarding_view.dart';
   routes: [
     MaterialRoute(page: HomeView),
     MaterialRoute(page: StartupView),
+      MaterialRoute(page: OnboardingView),
 // @stacked-route
   ],
   dependencies: [
