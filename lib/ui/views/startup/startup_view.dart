@@ -1,7 +1,7 @@
+import 'package:bingo_app/ui/common/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:stacked/stacked.dart';
-import 'package:bingo_app/ui/common/ui_helpers.dart';
 
 import 'startup_viewmodel.dart';
 
@@ -20,20 +20,19 @@ class StartupView extends StackedView<StartupViewModel> {
           mainAxisSize: MainAxisSize.min,
           children: [
             Text(
-              'STACKED',
-              style: TextStyle(fontSize: 40, fontWeight: FontWeight.w900),
+              'Bingo App',
+              style: TextStyle(
+                  color: kcBlue, fontSize: 40, fontWeight: FontWeight.w900),
             ),
             Row(
               mainAxisSize: MainAxisSize.min,
               children: [
-                Text('Loading ...', style: TextStyle(fontSize: 16)),
-                horizontalSpaceSmall,
                 SizedBox(
-                  width: 16,
-                  height: 16,
+                  width: 25,
+                  height: 25,
                   child: CircularProgressIndicator(
-                    color: Colors.black,
-                    strokeWidth: 6,
+                    color: kcBlue,
+                    strokeWidth: 4,
                   ),
                 )
               ],

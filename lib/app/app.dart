@@ -4,6 +4,7 @@ import 'package:bingo_app/ui/views/home/home_view.dart';
 import 'package:bingo_app/ui/views/startup/startup_view.dart';
 import 'package:stacked/stacked_annotations.dart';
 import 'package:stacked_services/stacked_services.dart';
+import 'package:bingo_app/ui/views/onboarding/onboarding_view.dart';
 // @stacked-import
 
 @StackedApp(
