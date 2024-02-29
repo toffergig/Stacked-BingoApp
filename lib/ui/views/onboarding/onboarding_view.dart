@@ -1,4 +1,5 @@
 import 'package:bingo_app/components/Button.dart';
+import 'package:bingo_app/components/elevated_btn.dart';
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
 
@@ -30,6 +31,7 @@ class OnboardingView extends StackedView<OnboardingViewModel> {
                 padding: const EdgeInsets.only(left: 30.0, right: 30.0),
                 child: MyButton(onTap: () {}),
               ),
+              EleBtn(textbtn: 'Login', onTap: () {})
             ],
           ),
         ),
