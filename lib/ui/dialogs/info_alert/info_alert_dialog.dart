@@ -1,3 +1,5 @@
+import 'package:bingo_app/components/dialog_btn.dart';
+import 'package:bingo_app/components/elevated_btn.dart';
 import 'package:flutter/material.dart';
 import 'package:bingo_app/ui/common/app_colors.dart';
 import 'package:bingo_app/ui/common/ui_helpers.dart';
@@ -56,7 +58,8 @@ class InfoAlertDialog extends StatelessWidget {
                         verticalSpaceTiny,
                         Text(
                           request.description!,
-                          style: const TextStyle(fontSize: 14, color: kcMediumGrey),
+                          style: const TextStyle(
+                              fontSize: 14, color: kcMediumGrey),
                           maxLines: 3,
                           softWrap: true,
                         ),
@@ -80,44 +83,30 @@ class InfoAlertDialog extends StatelessWidget {
                   )
                 ],
               ),
-             Row(
-  mainAxisAlignment: MainAxisAlignment.center,
-  children: [
-    DropdownMenu<String>(
-      initialSelection: model.dropdownValue,
-      onSelected: (String? value) {
-        model.setDropdownValue(value!);
-      },
-      width: 200,
-      dropdownMenuEntries: list.entries.map<DropdownMenuEntry<String>>((entry) {
-        final key = entry.key;
-        final value = entry.value;
-        return DropdownMenuEntry<String>(value: value, label: key);
-      }).toList(),
-    ),
-  ],
-),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  DropdownMenu<String>(
+                    initialSelection: model.dropdownValue,
+                    onSelected: (String? value) {
+                      model.setDropdownValue(value!);
+                    },
+                    width: 200,
+                    dropdownMenuEntries:
+                        list.entries.map<DropdownMenuEntry<String>>((entry) {
+                      final key = entry.key;
+                      final value = entry.value;
+                      return DropdownMenuEntry<String>(
+                          value: value, label: key);
+                    }).toList(),
+                  ),
+                ],
+              ),
               verticalSpaceMedium,
-              GestureDetector(
+              DialogBtn(
+                textbtn: 'Confirm',
                 onTap: () => completer(DialogResponse(confirmed: true)),
-                child: Container(
-                  height: 50,
-                  width: double.infinity,
-                  alignment: Alignment.center,
-                  decoration: BoxDecoration(
-                    color: Colors.black,
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  child: const Text(
-                    'Got it',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 16,
-                    ),
-                  ),
-                ),
-              )
+              ),
             ],
           ),
         ),

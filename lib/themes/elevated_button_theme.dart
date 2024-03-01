@@ -9,10 +9,10 @@ class TElevatedButtonTheme {
       style: ElevatedButton.styleFrom(
     elevation: 0,
     foregroundColor: kcPrimaryColor,
-    backgroundColor: kcBlue,
+    backgroundColor: kcIndigo,
     disabledBackgroundColor: kcLightGrey,
     disabledForegroundColor: kcLightGrey,
-    side: const BorderSide(color: kcBlue),
+    side: const BorderSide(color: kcIndigo),
     padding: const EdgeInsets.symmetric(horizontal: 70, vertical: 20),
     textStyle: const TextStyle(
         fontSize: 16, color: kcPrimaryColor, fontWeight: FontWeight.w600),
@@ -23,11 +23,25 @@ class TElevatedButtonTheme {
       style: ElevatedButton.styleFrom(
     elevation: 0,
     foregroundColor: kcPrimaryColor,
-    backgroundColor: kcBlue,
+    backgroundColor: kcIndigo,
     disabledBackgroundColor: kcLightGrey,
     disabledForegroundColor: kcLightGrey,
-    side: const BorderSide(color: kcBlue),
+    side: const BorderSide(color: kcIndigo),
     padding: const EdgeInsets.symmetric(horizontal: 70, vertical: 20),
+    textStyle: const TextStyle(
+        fontSize: 16, color: kcPrimaryColor, fontWeight: FontWeight.w600),
+    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+  ));
+
+   static final dialogBtnTheme = ElevatedButtonThemeData(
+      style: ElevatedButton.styleFrom(
+    elevation: 0,
+    foregroundColor: kcPrimaryColor,
+    backgroundColor: kcIndigo,
+    disabledBackgroundColor: kcLightGrey,
+    disabledForegroundColor: kcLightGrey,
+    side: const BorderSide(color: kcIndigo),
+    padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 20),
     textStyle: const TextStyle(
         fontSize: 16, color: kcPrimaryColor, fontWeight: FontWeight.w600),
     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),

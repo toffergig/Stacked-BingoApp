@@ -10,7 +10,7 @@ class TAppTheme {
       useMaterial3: true,
       fontFamily: 'Poppins',
       brightness: Brightness.light,
-      primaryColor: kcBlue,
+      primaryColor: kcIndigo,
       scaffoldBackgroundColor: kcPrimaryColor,
       textTheme: TTextTheme.lightTextTheme,
       elevatedButtonTheme: TElevatedButtonTheme.lightElevatedButtonTheme);
@@ -19,7 +19,7 @@ class TAppTheme {
       useMaterial3: true,
       fontFamily: 'Poppins',
       brightness: Brightness.dark,
-      primaryColor: kcBlue,
+      primaryColor: kcIndigo,
       scaffoldBackgroundColor: kcDarkGreyColor,
       textTheme: TTextTheme.darkTextTheme,
       elevatedButtonTheme: TElevatedButtonTheme.darkElevatedButtonTheme);

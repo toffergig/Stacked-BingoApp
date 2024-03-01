@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:bingo_app/themes/elevated_button_theme.dart';
 
-class ElevatedBtn extends StatelessWidget {
+class DialogBtn extends StatelessWidget {
   final String textbtn;
   final Function()? onTap;
 
-  const ElevatedBtn({Key? key, required this.textbtn, required this.onTap}) : super(key: key);
+  const DialogBtn({Key? key, required this.textbtn, required this.onTap}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

@@ -22,7 +22,7 @@ class StartupView extends StackedView<StartupViewModel> {
             Text(
               'Bingo App',
               style: TextStyle(
-                  color: kcBlue, fontSize: 40, fontWeight: FontWeight.w900),
+                  color: kcIndigo, fontSize: 40, fontWeight: FontWeight.w900),
             ),
             Row(
               mainAxisSize: MainAxisSize.min,
@@ -31,7 +31,7 @@ class StartupView extends StackedView<StartupViewModel> {
                   width: 25,
                   height: 25,
                   child: CircularProgressIndicator(
-                    color: kcBlue,
+                    color: kcIndigo,
                     strokeWidth: 4,
                   ),
                 )
