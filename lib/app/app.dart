@@ -5,7 +5,7 @@ import 'package:bingo_app/ui/views/startup/startup_view.dart';
 import 'package:stacked/stacked_annotations.dart';
 import 'package:stacked_services/stacked_services.dart';
 import 'package:bingo_app/ui/views/onboarding/onboarding_view.dart';
-import 'package:bingo_app/ui/views/cards/cards_view.dart';
+import 'package:bingo_app/ui/views/card/card_view.dart';
 // @stacked-import
 
 @StackedApp(
@@ -13,7 +13,7 @@ import 'package:bingo_app/ui/views/cards/cards_view.dart';
     MaterialRoute(page: HomeView),
     MaterialRoute(page: StartupView),
     MaterialRoute(page: OnboardingView),
-    MaterialRoute(page: BingoCardPage),
+    MaterialRoute(page: CardView),
 // @stacked-route
   ],
   dependencies: [

@@ -5,7 +5,7 @@
 // **************************************************************************
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
-import 'package:bingo_app/ui/dialogs/info_alert/info_alert_dialog.dart' as _i5;
+import 'package:bingo_app/ui/views/card/card_view.dart' as _i5;
 import 'package:bingo_app/ui/views/home/home_view.dart' as _i2;
 import 'package:bingo_app/ui/views/onboarding/onboarding_view.dart' as _i4;
 import 'package:bingo_app/ui/views/startup/startup_view.dart' as _i3;
@@ -21,13 +21,13 @@ class Routes {
 
   static const onboardingView = '/onboarding-view';
 
-  static const bingoCardPage = '/bingo-card-page';
+  static const cardView = '/card-view';
 
   static const all = <String>{
     homeView,
     startupView,
     onboardingView,
-    bingoCardPage,
+    cardView,
   };
 }
 
@@ -46,8 +46,8 @@ class StackedRouter extends _i1.RouterBase {
       page: _i4.OnboardingView,
     ),
     _i1.RouteDef(
-      Routes.bingoCardPage,
-      page: _i5.BingoCardPage,
+      Routes.cardView,
+      page: _i5.CardView,
     ),
   ];
 
@@ -70,11 +70,18 @@ class StackedRouter extends _i1.RouterBase {
         settings: data,
       );
     },
-    _i5.BingoCardPage: (data) {
-      final args = data.getArgs<BingoCardPageArguments>(nullOk: false);
+    _i5.CardView: (data) {
+      final args = data.getArgs<CardViewArguments>(nullOk: false);
       return _i6.MaterialPageRoute<dynamic>(
-        builder: (context) => _i5.BingoCardPage(
-            key: args.key, selectedPattern: args.selectedPattern),
+        builder: (context) => _i5.CardView(
+            key: args.key,
+            bingoCard: args.bingoCard,
+            selectedPattern: args.selectedPattern,
+            bList: args.bList,
+            iList: args.iList,
+            nList: args.nList,
+            gList: args.gList,
+            oList: args.oList),
         settings: data,
       );
     },
@@ -87,30 +94,62 @@ class StackedRouter extends _i1.RouterBase {
   Map<Type, _i1.StackedRouteFactory> get pagesMap => _pagesMap;
 }
 
-class BingoCardPageArguments {
-  const BingoCardPageArguments({
+class CardViewArguments {
+  const CardViewArguments({
     this.key,
+    required this.bingoCard,
     required this.selectedPattern,
+    required this.bList,
+    required this.iList,
+    required this.nList,
+    required this.gList,
+    required this.oList,
   });
 
   final _i6.Key? key;
 
-  final String selectedPattern;
+  final List<List<int>> bingoCard;
+
+  final List<int> selectedPattern;
+
+  final List<int> bList;
+
+  final List<int> iList;
+
+  final List<int> nList;
+
+  final List<int> gList;
+
+  final List<int> oList;
 
   @override
   String toString() {
-    return '{"key": "$key", "selectedPattern": "$selectedPattern"}';
+    return '{"key": "$key", "bingoCard": "$bingoCard", "selectedPattern": "$selectedPattern", "bList": "$bList", "iList": "$iList", "nList": "$nList", "gList": "$gList", "oList": "$oList"}';
   }
 
   @override
-  bool operator ==(covariant BingoCardPageArguments other) {
+  bool operator ==(covariant CardViewArguments other) {
     if (identical(this, other)) return true;
-    return other.key == key && other.selectedPattern == selectedPattern;
+    return other.key == key &&
+        other.bingoCard == bingoCard &&
+        other.selectedPattern == selectedPattern &&
+        other.bList == bList &&
+        other.iList == iList &&
+        other.nList == nList &&
+        other.gList == gList &&
+        other.oList == oList;
   }
 
   @override
   int get hashCode {
-    return key.hashCode ^ selectedPattern.hashCode;
+    return key.hashCode ^
+        bingoCard.hashCode ^
+        selectedPattern.hashCode ^
+        bList.hashCode ^
+        iList.hashCode ^
+        nList.hashCode ^
+        gList.hashCode ^
+        oList.hashCode;
   }
 }
 
@@ -157,18 +196,31 @@ extension NavigatorStateExtension on _i7.NavigationService {
         transition: transition);
   }
 
-  Future<dynamic> navigateToBingoCardPage({
+  Future<dynamic> navigateToCardView({
     _i6.Key? key,
-    required String selectedPattern,
+    required List<List<int>> bingoCard,
+    required List<int> selectedPattern,
+    required List<int> bList,
+    required List<int> iList,
+    required List<int> nList,
+    required List<int> gList,
+    required List<int> oList,
     int? routerId,
     bool preventDuplicates = true,
     Map<String, String>? parameters,
     Widget Function(BuildContext, Animation<double>, Animation<double>, Widget)?
         transition,
   }) async {
-    return navigateTo<dynamic>(Routes.bingoCardPage,
-        arguments:
-            BingoCardPageArguments(key: key, selectedPattern: selectedPattern),
+    return navigateTo<dynamic>(Routes.cardView,
+        arguments: CardViewArguments(
+            key: key,
+            bingoCard: bingoCard,
+            selectedPattern: selectedPattern,
+            bList: bList,
+            iList: iList,
+            nList: nList,
+            gList: gList,
+            oList: oList),
         id: routerId,
         preventDuplicates: preventDuplicates,
         parameters: parameters,
@@ -217,18 +269,31 @@ extension NavigatorStateExtension on _i7.NavigationService {
         transition: transition);
   }
 
-  Future<dynamic> replaceWithBingoCardPage({
+  Future<dynamic> replaceWithCardView({
     _i6.Key? key,
-    required String selectedPattern,
+    required List<List<int>> bingoCard,
+    required List<int> selectedPattern,
+    required List<int> bList,
+    required List<int> iList,
+    required List<int> nList,
+    required List<int> gList,
+    required List<int> oList,
     int? routerId,
     bool preventDuplicates = true,
     Map<String, String>? parameters,
     Widget Function(BuildContext, Animation<double>, Animation<double>, Widget)?
         transition,
   }) async {
-    return replaceWith<dynamic>(Routes.bingoCardPage,
-        arguments:
-            BingoCardPageArguments(key: key, selectedPattern: selectedPattern),
+    return replaceWith<dynamic>(Routes.cardView,
+        arguments: CardViewArguments(
+            key: key,
+            bingoCard: bingoCard,
+            selectedPattern: selectedPattern,
+            bList: bList,
+            iList: iList,
+            nList: nList,
+            gList: gList,
+            oList: oList),
         id: routerId,
         preventDuplicates: preventDuplicates,
         parameters: parameters,
