@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:bingo_app/ui/views/card/card_view.dart';
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
@@ -78,10 +76,11 @@ class InfoAlertDialog extends StackedView<InfoAlertDialogModel> {
                 )
               ],
             ),
+
             DropdownButtonFormField<String>(
               value: 'L',
               onChanged: (newValue) {
-                viewModel.selectPattern(pattern: newValue ?? 'L');
+                viewModel.setNewPattern(pattern: newValue ?? 'L');
               },
               decoration: const InputDecoration(
                 enabledBorder: UnderlineInputBorder(
@@ -115,43 +114,61 @@ class InfoAlertDialog extends StackedView<InfoAlertDialogModel> {
               }).toList(),
             ),
             const SizedBox(height: 16),
-            GestureDetector(
-              onTap: () {
-                viewModel.generateBingoCard();
-                // viewModel.checkForPattern(pattern: viewModel.selectedPattern);
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => CardView(
-                      bingoCard: viewModel.getBingoCard,
-                      selectedPattern: viewModel.getSelectedPatter,
-                      bList: viewModel.bList,
-                      iList: viewModel.iList,
-                      nList: viewModel.nList,
-                      gList: viewModel.gList,
-                      oList: viewModel.oList,
+            ElevatedButton(
+                onPressed: () {
+                  viewModel.generateBingoCard();
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => CardView(
+                          selectedPattern: viewModel.getSelectedPattern,
+                          bingoCard: viewModel.bingoCard,
+                          bList: viewModel.bList,
+                          iList: viewModel.iList,
+                          nList: viewModel.nList,
+                          gList: viewModel.gList,
+                          oList: viewModel.oList),
                     ),
-                  ),
-                );
-              },
-              child: Container(
-                height: 50,
-                width: double.infinity,
-                alignment: Alignment.center,
-                decoration: BoxDecoration(
-                  color: Colors.green,
-                  borderRadius: BorderRadius.circular(10),
-                ),
-                child: const Text(
-                  'Generate card',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 16,
-                  ),
-                ),
-              ),
-            ),
+                  );
+                },
+                child: const Text('Generate card'))
+            // GestureDetector(
+            //   onTap: () {
+            //     viewModel.generateBingoCard();
+            //     // viewModel.checkForPattern(pattern: viewModel.selectedPattern);
+            //     Navigator.push(
+            //       context,
+            //       MaterialPageRoute(
+            //         builder: (context) => CardView(
+            //           bingoCard: viewModel.getBingoCard,
+            //           selectedPattern: viewModel.getSelectedPatter,
+            //           bList: viewModel.bList,
+            //           iList: viewModel.iList,
+            //           nList: viewModel.nList,
+            //           gList: viewModel.gList,
+            //           oList: viewModel.oList,
+            //         ),
+            //       ),
+            //     );
+            //   },
+            //   child: Container(
+            //     height: 50,
+            //     width: double.infinity,
+            //     alignment: Alignment.center,
+            //     decoration: BoxDecoration(
+            //       color: Colors.green,
+            //       borderRadius: BorderRadius.circular(10),
+            //     ),
+            //     child: const Text(
+            //       'Generate card',
+            //       style: TextStyle(
+            //         color: Colors.white,
+            //         fontWeight: FontWeight.bold,
+            //         fontSize: 16,
+            //       ),
+            //     ),
+            //   ),
+            // ),
           ],
         ),
       ),

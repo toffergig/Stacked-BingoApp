@@ -4,8 +4,8 @@ import 'package:stacked/stacked.dart';
 import 'card_viewmodel.dart';
 
 class CardView extends StackedView<CardViewModel> {
+  final String selectedPattern;
   final List<List<int>> bingoCard;
-  final List<int> selectedPattern;
   final List<int> bList;
   final List<int> iList;
   final List<int> nList;
@@ -14,8 +14,8 @@ class CardView extends StackedView<CardViewModel> {
 
   const CardView(
       {Key? key,
-      required this.bingoCard,
       required this.selectedPattern,
+      required this.bingoCard,
       required this.bList,
       required this.iList,
       required this.nList,
@@ -70,8 +70,7 @@ class CardView extends StackedView<CardViewModel> {
                   int j = index % 5;
                   return GestureDetector(
                     onTap: () {
-                      viewModel.pushTappedItems(
-                          bingoCard[i][j], selectedPattern);
+                      viewModel.pushTappedItems(bingoCard[i][j]);
                     },
                     child: Container(
                       decoration: BoxDecoration(
@@ -107,6 +106,7 @@ class CardView extends StackedView<CardViewModel> {
   ) =>
       CardViewModel(
           selectedPattern: selectedPattern,
+          bingoCard: bingoCard,
           bList: bList,
           iList: iList,
           nList: nList,

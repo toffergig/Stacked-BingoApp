@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_print
+
 import 'dart:math';
 
 import 'package:stacked/stacked.dart';
@@ -10,25 +12,21 @@ class InfoAlertDialogModel extends BaseViewModel {
   List<int> nList = [];
   List<int> gList = [];
   List<int> oList = [];
-  List<int> selectedPatter = [];
 
   String selectedPattern = 'L';
 
   // getter
-
   List<int> get getBList => bList;
   List<int> get getIList => iList;
   List<int> get getNList => nList;
   List<int> get getGList => gList;
   List<int> get getOList => oList;
   List<List<int>> get getBingoCard => bingoCard;
-  List<int> get getSelectedPatter => selectedPatter;
+  String get getSelectedPattern => selectedPattern;
 
-  void selectPattern({String pattern = ''}) {
+  void setNewPattern({String pattern = ''}) {
     selectedPattern = pattern;
   }
-
-  void checkForPattern({String pattern = ''}) {}
 
   void generateBingoCard() {
     for (var i = 0; i < 5; i++) {
@@ -57,37 +55,6 @@ class InfoAlertDialogModel extends BaseViewModel {
         bingoCard[i].add(value);
       }
     }
-    generatePatterValues();
-  }
-
-  void generatePatterValues() {
-    switch (selectedPattern) {
-      case 'L':
-        selectedPatter = getLPattern();
-        // call for L patter generator
-        break;
-      case 'X':
-        // call for L patter generator
-        break;
-      case 'Cross':
-        // call for Cross patter generator
-        break;
-      case 'Corners':
-        // call for Corners patter generator
-        break;
-      case 'Blackout':
-        selectedPatter = getBlackOut();
-        // call for Blackout patter generator
-        break;
-      case 'LineVertical':
-        // call for LineVertical patter generator
-        break;
-      case 'LineHorizontal':
-        // call for LineHorizontal patter generator
-        break;
-      default:
-      // call for LineVerticalAfterRow patter generator
-    }
   }
 
   int generateRandomNumberBasedOnGivenRange(
@@ -103,24 +70,55 @@ class InfoAlertDialogModel extends BaseViewModel {
     return randomValue;
   }
 
-  List<int> getBlackOut() {
-    print(selectedPattern);
-    return [...bList, ...iList, ...nList, ...gList, ...oList];
-  }
+  // List<int> getBlackOut() {
+  //   print(selectedPattern);
+  //   return [...bList, ...iList, ...nList, ...gList, ...oList];
+  // }
 
-  List<int> getLPattern() {
-    print(selectedPattern);
-    // return [...bList,iList[4],nList[4],gList[4],oList[4] || ...oList,bList[0],iList[0]];
-    return [
-      ...bList,
-      iList[4],
-      nList[4],
-      gList[4],
-      oList[4],
-      ...oList,
-      iList[0],
-      nList[0],
-      gList[0]
-    ];
-  }
+  // List<int> getLPattern() {
+  //   return [
+  //     ...bList,
+  //     iList[4],
+  //     nList[4],
+  //     gList[4],
+  //     oList[4],
+  //     ...oList,
+  //     iList[0],
+  //     nList[0],
+  //     gList[0]
+  //   ];
+  // }
+
+  // List<int> getXPattern() {
+  //   return [
+  //     bList[0],
+  //     bList[4],
+  //     iList[1],
+  //     iList[3],
+  //     gList[1],
+  //     gList[3],
+  //     oList[0],
+  //     oList[4],
+  //   ];
+  // }
+
+  // List<int> getCrossPattern() {
+  //   return [
+  //     ...nList,
+  //     bList[2],
+  //     iList[2],
+  //     gList[2],
+  //     oList[2],
+  //   ];
+  // }
+
+  // List<int> getLineVerticalPattern() {
+  //   return [
+  //     ...nList,
+  //     bList[2],
+  //     iList[2],
+  //     gList[2],
+  //     oList[2],
+  //   ];
+  // }
 }

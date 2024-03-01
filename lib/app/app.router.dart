@@ -75,8 +75,8 @@ class StackedRouter extends _i1.RouterBase {
       return _i6.MaterialPageRoute<dynamic>(
         builder: (context) => _i5.CardView(
             key: args.key,
-            bingoCard: args.bingoCard,
             selectedPattern: args.selectedPattern,
+            bingoCard: args.bingoCard,
             bList: args.bList,
             iList: args.iList,
             nList: args.nList,
@@ -97,8 +97,8 @@ class StackedRouter extends _i1.RouterBase {
 class CardViewArguments {
   const CardViewArguments({
     this.key,
-    required this.bingoCard,
     required this.selectedPattern,
+    required this.bingoCard,
     required this.bList,
     required this.iList,
     required this.nList,
@@ -108,9 +108,9 @@ class CardViewArguments {
 
   final _i6.Key? key;
 
-  final List<List<int>> bingoCard;
+  final String selectedPattern;
 
-  final List<int> selectedPattern;
+  final List<List<int>> bingoCard;
 
   final List<int> bList;
 
@@ -124,15 +124,15 @@ class CardViewArguments {
 
   @override
   String toString() {
-    return '{"key": "$key", "bingoCard": "$bingoCard", "selectedPattern": "$selectedPattern", "bList": "$bList", "iList": "$iList", "nList": "$nList", "gList": "$gList", "oList": "$oList"}';
+    return '{"key": "$key", "selectedPattern": "$selectedPattern", "bingoCard": "$bingoCard", "bList": "$bList", "iList": "$iList", "nList": "$nList", "gList": "$gList", "oList": "$oList"}';
   }
 
   @override
   bool operator ==(covariant CardViewArguments other) {
     if (identical(this, other)) return true;
     return other.key == key &&
-        other.bingoCard == bingoCard &&
         other.selectedPattern == selectedPattern &&
+        other.bingoCard == bingoCard &&
         other.bList == bList &&
         other.iList == iList &&
         other.nList == nList &&
@@ -143,8 +143,8 @@ class CardViewArguments {
   @override
   int get hashCode {
     return key.hashCode ^
-        bingoCard.hashCode ^
         selectedPattern.hashCode ^
+        bingoCard.hashCode ^
         bList.hashCode ^
         iList.hashCode ^
         nList.hashCode ^
@@ -198,8 +198,8 @@ extension NavigatorStateExtension on _i7.NavigationService {
 
   Future<dynamic> navigateToCardView({
     _i6.Key? key,
+    required String selectedPattern,
     required List<List<int>> bingoCard,
-    required List<int> selectedPattern,
     required List<int> bList,
     required List<int> iList,
     required List<int> nList,
@@ -214,8 +214,8 @@ extension NavigatorStateExtension on _i7.NavigationService {
     return navigateTo<dynamic>(Routes.cardView,
         arguments: CardViewArguments(
             key: key,
-            bingoCard: bingoCard,
             selectedPattern: selectedPattern,
+            bingoCard: bingoCard,
             bList: bList,
             iList: iList,
             nList: nList,
@@ -271,8 +271,8 @@ extension NavigatorStateExtension on _i7.NavigationService {
 
   Future<dynamic> replaceWithCardView({
     _i6.Key? key,
+    required String selectedPattern,
     required List<List<int>> bingoCard,
-    required List<int> selectedPattern,
     required List<int> bList,
     required List<int> iList,
     required List<int> nList,
@@ -287,8 +287,8 @@ extension NavigatorStateExtension on _i7.NavigationService {
     return replaceWith<dynamic>(Routes.cardView,
         arguments: CardViewArguments(
             key: key,
-            bingoCard: bingoCard,
             selectedPattern: selectedPattern,
+            bingoCard: bingoCard,
             bList: bList,
             iList: iList,
             nList: nList,
