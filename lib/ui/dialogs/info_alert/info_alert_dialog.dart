@@ -237,6 +237,10 @@ class _BingoCardPageState extends State<BingoCardPage> {
     return randomValue;
   }
 
+  List<int> getBlackOut() {
+    return [...bList, ...iList, ...nList, ...gList, ...oList];
+  }
+
   bool checkForWin() {
     switch (widget.selectedPattern) {
       case 'L':
@@ -291,7 +295,7 @@ class _BingoCardPageState extends State<BingoCardPage> {
 
   bool checkForWinHorizontal() {
     for (int i = 0; i < 5; i++) {
-      if (bingoCard[i].every((cell) => cell < 0)) {
+      if (bingoCard[i].every((cell) => cell < 0) || bingoCard[i].every((cell) => cell < 1)) {
         showDialogBox();
         return true;
       }
@@ -301,7 +305,7 @@ class _BingoCardPageState extends State<BingoCardPage> {
 
   bool checkForWinVertical() {
     for (int j = 0; j < 5; j++) {
-      if (bingoCard.every((row) => row[j] < 0)) {
+      if (bingoCard.every((row) => row[j] < 5) || bingoCard.every((row) => row[j] < 4)) {
         showDialogBox();
         return true;
       }
