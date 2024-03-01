@@ -27,9 +27,13 @@ class OnboardingView extends StackedView<OnboardingViewModel> {
                 height: 300,
               ),
               Padding(
-                padding: const EdgeInsets.only(left: 30.0, right: 30.0),
-                child: MyButton(onTap: () {}),
-              ),
+  padding: const EdgeInsets.only(left: 30.0, right: 30.0),
+  child: MyButton(
+    onTap: () {
+      viewModel.showDialog(); // Invoke the showDialog method
+    },
+  ),
+),
             ],
           ),
         ),
