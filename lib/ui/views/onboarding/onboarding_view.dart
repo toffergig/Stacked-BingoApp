@@ -32,6 +32,13 @@ class OnboardingView extends StackedView<OnboardingViewModel> {
                 child: MyButton(onTap: () {}),
               ),
               EleBtn(textbtn: 'Login', onTap: () {})
+  padding: const EdgeInsets.only(left: 30.0, right: 30.0),
+  child: MyButton(
+    onTap: () {
+      viewModel.showDialog(); // Invoke the showDialog method
+    },
+  ),
+),
             ],
           ),
         ),
